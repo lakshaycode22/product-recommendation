@@ -4,9 +4,11 @@ import { Tilt } from "react-tilt";
 const Category = ({ formData, setCurrentStep }) => {
   const handleChange = (e) => {
     setCurrentStep(e);
+    //add value in array
   };
   const handlePrevChange = (e) => {
     setCurrentStep(e);
+    //remove last element from array
   };
 
   return (
