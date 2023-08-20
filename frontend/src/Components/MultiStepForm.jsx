@@ -19,6 +19,7 @@ import {
 
 const MultiStepForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
+  // create a array and pass in every value;
 
   let content = null;
   switch (currentStep) {

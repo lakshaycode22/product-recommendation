@@ -1,11 +1,11 @@
-import { Fragment } from "react"
-// import Category from "./Components/Category"
 import MultiStepForm from "./Components/MultiStepForm"
+import ParticleBackground from "./Components/Particles"
 
 function App() {
 
   return (
-    <div className="bg-primary h-screen">
+    <div className=" h-screen">
+      <ParticleBackground />
       <MultiStepForm/>
     </div>
   )
