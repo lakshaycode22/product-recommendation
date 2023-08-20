@@ -1,18 +1,24 @@
-import React, { useEffect, useState } from "react";
+// import database from './firebase';
+
 import { Tilt } from "react-tilt";
 
-const Category = ({ formData, setCurrentStep }) => {
+const Category = ({ formData, setCurrentStep, arr,setArr }) => {
+ 
+  
   const handleChange = (e) => {
-    setCurrentStep(e);
-    //add value in array
+    //add element to array
+    setArr([...arr, e.output]);
+    setCurrentStep(e.step);
   };
   const handlePrevChange = (e) => {
+    const updatedArr = arr.slice(0, arr.length - 1);
+    setArr(updatedArr);
     setCurrentStep(e);
     //remove last element from array
   };
 
   return (
-    <div className="bg-primary">
+    <div className="">
       <h1 className="flex justify-center font-black text-secondary lg:text-[60px] sm:text-[40px] xs:text-[40px] text-[30px] lg:leading-[98px] my-4">
         Select your Category
       </h1>
@@ -27,7 +33,7 @@ const Category = ({ formData, setCurrentStep }) => {
             <div
               key={index}
               className="my-10 w-[240px]"
-              onClick={() => handleChange(category.step)}
+              onClick={() => handleChange(category)}
             >
               <Tilt>
                 <div className="w-full green-pink-gradient p-[2px] rounded-[20px] shadow-card">
@@ -57,7 +63,8 @@ const Category = ({ formData, setCurrentStep }) => {
             </button>
           </div>
         ) : (
-          <div></div>
+          <div>
+          </div>
         )}
       </div>
     </div>

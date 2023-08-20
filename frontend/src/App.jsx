@@ -5,7 +5,7 @@ function App() {
 
   return (
     <div className=" h-screen">
-      <ParticleBackground />
+      <ParticleBackground/>
       <MultiStepForm/>
     </div>
   )
