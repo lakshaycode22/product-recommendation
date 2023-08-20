@@ -22,7 +22,7 @@ import ProductList from "./ProductList";
 const MultiStepForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [arr, setArr] = useState([]);
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     if (arr.length!=0) {
@@ -37,20 +37,36 @@ const MultiStepForm = () => {
   }, [arr]);
 
   
+  // useEffect(() => {
+  //   const documentRef = firestore.collection("collect-output").doc("0s3GSuyAUnsqiRuHyz5Z");
+  //   documentRef.get().then((doc) => {
+  //     if (doc.exists) {
+  //       //data user kaaaaaaaaaa yaha pr h
+  //       setData(doc.data());
+  //       console.log("Document data:", doc.data());
+        
+  //     } else {
+  //       console.log("No such document!");
+  //     }
+  //   });
+  // }, [arr]);
+
   useEffect(() => {
     const documentRef = firestore.collection("collect-output").doc("0s3GSuyAUnsqiRuHyz5Z");
-    documentRef.get().then((doc) => {
+  
+    const unsubscribe = documentRef.onSnapshot((doc) => {
       if (doc.exists) {
-        //data user kaaaaaaaaaa yaha pr h
+        // Data from the document is here
         setData(doc.data());
         console.log("Document data:", doc.data());
-        
       } else {
         console.log("No such document!");
       }
     });
+      return () => {
+      unsubscribe();
+    };
   }, []);
-
   
   let content = null;
   switch (currentStep) {
@@ -186,7 +202,7 @@ const MultiStepForm = () => {
       break;
     case 10:
       content =(
-        <ProductList/>
+        <ProductList data={data}/>
       ) ;
       break;
     default:

@@ -105,7 +105,8 @@ const tdata = {
     ]
 }
 
-const ProductList = () => {
+const ProductList = ({data}) => {
+  console.log("data is consoled here "+data);
     
   return (
     <div>
@@ -115,7 +116,7 @@ const ProductList = () => {
         </h2>
 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          {tdata.products.map((product) => (
+          {data.products.map((product) => (
             <div key={product.uniq_id} className="group relative">
               <div className="h-[380px] w-[280px] overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                 <img

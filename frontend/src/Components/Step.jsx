@@ -5,24 +5,9 @@ import firestore from "../../firebaseConfig";
 import { Tilt } from "react-tilt";
 
 const Category = ({ formData, setCurrentStep, arr, setArr }) => {
-  useEffect(() => {
-    const documentRef = firestore
-      .collection("collect-output")
-      .doc("0s3GSuyAUnsqiRuHyz5Z");
-    if (arr.length >= 3) {
-      documentRef.get().then((doc) => {
-        if (doc.exists) {
-          console.log("Document data:", doc.data());
-        } else {
-          console.log("No such document!");
-        }
-      });
-    }
-  }, [arr]);
  
   
   const handleChange = (e) => {
-    //add element to array
     setArr([...arr, e.output]);
     setCurrentStep(e.step);
   };
@@ -30,7 +15,6 @@ const Category = ({ formData, setCurrentStep, arr, setArr }) => {
     const updatedArr = arr.slice(0, arr.length - 1);
     setArr(updatedArr);
     setCurrentStep(e);
-    //remove last element from array
   };
 
   return (
