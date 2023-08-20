@@ -17,10 +17,12 @@ import {
   mobileAccessories,
   beauty,
 } from "../Constants";
+import ProductList from "./ProductList";
 
 const MultiStepForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [arr, setArr] = useState([]);
+  const [data, setData] = useState({});
 
   useEffect(() => {
     if (arr.length!=0) {
@@ -40,6 +42,7 @@ const MultiStepForm = () => {
     documentRef.get().then((doc) => {
       if (doc.exists) {
         //data user kaaaaaaaaaa yaha pr h
+        setData(doc.data());
         console.log("Document data:", doc.data());
         
       } else {
@@ -180,6 +183,11 @@ const MultiStepForm = () => {
           setArr={setArr}
         />
       );
+      break;
+    case 10:
+      content =(
+        <ProductList/>
+      ) ;
       break;
     default:
       break;

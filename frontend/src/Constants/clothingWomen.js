@@ -5,7 +5,7 @@ const clothingWomen = {
       {
         subCategoryTitle: "Western Wear",
         img: "https://images.pexels.com/photos/5885996/pexels-photo-5885996.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        step : 3.11,
+        step : 10,
         output : 1,
       },
       {

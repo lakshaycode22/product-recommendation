@@ -1,14 +1,16 @@
-import MultiStepForm from "./Components/MultiStepForm"
-import ParticleBackground from "./Components/Particles"
+import MultiStepForm from "./Components/MultiStepForm";
+import ParticleBackground from "./Components/Particles";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-
   return (
-    <div className=" h-screen">
-      <ParticleBackground/>
-      <MultiStepForm/>
-    </div>
-  )
+    <BrowserRouter>
+      <ParticleBackground />
+      <Routes>
+        <Route path="/" className=" h-screen" element={<MultiStepForm />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
