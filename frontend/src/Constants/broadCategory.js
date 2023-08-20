@@ -10,7 +10,7 @@ const broadCategory = {
         output : 1,
       },
       {
-        subCategoryTitle: "Jwellery",
+        subCategoryTitle: "Jewellery",
         img: "https://images.pexels.com/photos/4741616/pexels-photo-4741616.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         step: 4,
         output : 2,
